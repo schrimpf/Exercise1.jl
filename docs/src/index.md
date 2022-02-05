@@ -40,6 +40,7 @@ A few more hints:
 - To compare performance, put your code in a function and use `@btime` macro to time it.  Remember to escape globals if necessary (e.g. `@btime f(\$A)` rather than `@btime f(A)`  Documentation for [Exercise1](https://github.com/schrimpf/Exercise1.jl).
 
 ```@example
+using Exercise1
 using BenchmarkTools
 n = 100
 A = randn(n,n)
