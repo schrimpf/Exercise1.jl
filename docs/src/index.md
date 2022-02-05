@@ -10,15 +10,15 @@ This exercise is for a practice on writing low-level routines (i.e. â€œkernelsâ€
 
 The formula for matrix multiplication is deceptively simple.  For example, with the product of square matrices $ C = A B $ of size $ N \times N $, the $ i,j $ element of $ C $ is
 
-$$
+```math
 C_{ij} = \sum_{k=1}^N A_{ik} B_{kj}
-$$
+```
 
 Alternatively, you can take a row $ A_{i,:} $ and column $ B_{:, j} $ and use an inner product
 
-$$
+```math
 C_{ij} = A_{i,:} \cdot B_{:,j}
-$$
+```
 
 Note that the inner product in a discrete space is simply a sum, and has the same complexity as the sum (i.e. $ O(N) $ operations).
 
