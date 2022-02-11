@@ -39,19 +39,6 @@ A few more hints:
 - For all of them, preallocate the $ C $ matrix beforehand with `C = similar(A)` or something equivalent.  
 - To compare performance, put your code in a function and use `@btime` macro to time it.  Remember to escape globals if necessary (e.g. `@btime f(\$A)` rather than `@btime f(A)`  Documentation for [Exercise1](https://github.com/schrimpf/Exercise1.jl).
 
-```@example
-using Exercise1
-using BenchmarkTools
-n = 100
-A = randn(n,n)
-B = randn(n,n)
-C = similar(B)
-
-@btime rowmatmul!($C,$A,$B)
-@btime colmatmul!($C,$A,$B)
-@btime matmul!($C,$A,$B)
-```
-
 
 ```@index
 ```

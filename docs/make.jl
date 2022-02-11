@@ -15,6 +15,7 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Benchmarks" => "benchmarks.md"
     ],
 )
 
@@ -22,3 +23,6 @@ deploydocs(;
     repo="github.com/schrimpf/Exercise1.jl",
     devbranch="main",
 )
+
+
+

@@ -1,10 +1,9 @@
 module Exercise1
 
-using Infiltrator
 
-export rowmatmul!, colmatmul!, rowmatmuldot!, colmatmuldot!
+export rowmatmul!, colmatmul!, rowmatmuldot!, colmatmuldot!, turbomul!
 
-# Write your package code here.
+using LoopVectorization
 import LinearAlgebra: dot
 
 """
@@ -16,7 +15,6 @@ function rowmatmul!(C,A,B)
   for i in 1:size(C,1)    
     for j in 1:size(C,2)
       C[i,j] = zero(eltype(C))
-      @infiltrate
       for k in 1:size(A,2)
         C[i,j] += A[i,k]*B[k,j]
       end
@@ -42,5 +40,16 @@ end
 function colmatmuldot!(C,A,B)
   error("not implemented")
 end
+
+function turbomul!(C, A, B)
+  @turbo for n ∈ indices((C,B), 2), m ∈ indices((C,A), 1)
+      Cmn = zero(eltype(C))
+      for k ∈ indices((A,B), (2,1))
+          Cmn += A[m,k] * B[k,n]
+      end
+      C[m,n] = Cmn
+  end
+end
+
 
 end
