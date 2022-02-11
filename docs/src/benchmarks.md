@@ -46,6 +46,7 @@ using Exercise1
 using BenchmarkTools
 using LinearAlgebra: mul!
 using Plots
+ENV["GKSwstype"] = "100"
 
 function benchmarks(n, S=100)
   funcs = [colmatmul!, mul!, turbomul!]
@@ -64,4 +65,3 @@ n = 2 .^(1:9)
 times=benchmarks.(n)
 plot(n, hcat(times...)', labels=["colmatmul!" "mul!" "turbomul!"], xaxis=:log10, yaxis=:log10)
 ```
-

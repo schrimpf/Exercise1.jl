@@ -23,6 +23,3 @@ deploydocs(;
     repo="github.com/schrimpf/Exercise1.jl",
     devbranch="main",
 )
-
-
-
